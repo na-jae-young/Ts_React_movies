@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import '../App.css';
 import Movie from '../conponent/Movie'
 import { monitorEventLoopDelay } from 'perf_hooks';
-
+import styles from "./Home.module.css";
 
 export function Home(){
 
@@ -28,14 +28,15 @@ export function Home(){
       console.log(movies)
     },[movies])
     return (//이유는 모르겟지만 typescript 에선 map 사용시  &&  사용하면 any type 에러 사라짐  
-      <div>
-        {loading ? ( <h1>Loading...</h1> ): (<div>{movies.map(m => 
+      <div className={styles.container}>
+        {loading ? ( <div className={styles.loader}><span>Loading...</span></div > ): (<div className={styles.movies}>{movies.map(m => 
           <Movie     
           m_id ={m.id}
           m_image ={m.medium_cover_image}
           m_title ={m.title}
           m_summary ={m.summary}
           m_genres ={m.genres}
+          m_year = {m.year}
           />)}</div> )}
       </div>
     );
