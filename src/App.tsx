@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 function App() {
 
   return (
-    <Router >
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/movie/:id" element={<Detail />} />
         <Route path="/" element={<Home />} />
