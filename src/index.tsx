@@ -4,15 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./styles.css";
+import {BrowserRouter} from 'react-router-dom'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter basename={process.env.PUBLIC_URL}>      
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
+
+
+
+
+//  <BrowserRouter basename={process.env.PUBLIC_URL}>   배포했을때 빈화면이 나온다면 basepage를 지정해주지 않아서이다 . 
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
